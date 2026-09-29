@@ -1,0 +1,35 @@
+# Build outputs
+bin/
+obj/
+out/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+
+# .NET
+*.dll
+*.pdb
+*.exe
+*.cache
+
+# Packages
+*.nupkg
+packages/
+
+# Test results
+TestResults/
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config (don't commit secrets)
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
