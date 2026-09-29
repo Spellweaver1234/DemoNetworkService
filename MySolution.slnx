@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Demo.csproj" />
+  <Project Path="NetworkService/NetworkService.csproj" />
+</Solution>

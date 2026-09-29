@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="Demo.MainPage"
+             Title="Тест Сети">
+
+    <!-- Используем Grid, чтобы элементы могли накладываться друг на друга -->
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- КРАСНАЯ ПЛАШКА: Появляется только когда IsOffline = True -->
+        <Border Grid.Row="0" 
+                BackgroundColor="Red" 
+                Padding="10"
+                IsVisible="{Binding IsOffline}">
+            <Label Text="Нет подключения к интернету" 
+                   TextColor="White" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold"/>
+        </Border>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ СТРАНИЦЫ -->
+        <VerticalStackLayout Grid.Row="1" 
+                             Spacing="25" 
+                             Padding="30" 
+                             VerticalOptions="Center">
+
+            <Label Text="Важное приложение"
+                   FontSize="32"
+                   HorizontalOptions="Center" />
+
+            <!-- Кнопка автоматически станет серой и выключится, если пропадет интернет -->
+            <Button Text="Отправить данные на сервер"
+                    Command="{Binding SendDataCommand}"
+                    HeightRequest="50"
+                    HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
