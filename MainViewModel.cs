@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using NetworkService;
+using Demo.Services;
 
 namespace Demo;
 
@@ -52,11 +52,10 @@ public class MainViewModel : INotifyPropertyChanged
 
     private void OnNetworkChanged(object? sender, bool isConnected)
     {
-        IsOnline = isConnected;
-
         // Принудительно просим кнопку перепроверить свое состояние (активна/заблокирована)
         MainThread.BeginInvokeOnMainThread(() => 
         {
+	        IsOnline = isConnected;
             ((Command)SendDataCommand).ChangeCanExecute();
         });
     }

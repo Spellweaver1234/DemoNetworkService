@@ -1,11 +1,4 @@
-﻿namespace NetworkService;
-
-public interface INetworkService
-{
-	bool IsConnected{get;}
-	NetworkAccess AccessType{get;}
-	event EventHandler<bool> ConnectionChanged;
-}
+﻿namespace Demo.Services;
 
 public class NetworkService : INetworkService, IDisposable
 {

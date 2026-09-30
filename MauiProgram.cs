@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Demo.Services;
+using Microsoft.Extensions.Logging;
 
 namespace Demo;
 
@@ -19,15 +20,15 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-// Системный сервис MAUI
-builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
-
-// Ваш созданный сервис сети
-builder.Services.AddSingleton<NetworkService.INetworkService, NetworkService.NetworkService>();
-
-// ViewModel и Страница
-builder.Services.AddTransient<MainViewModel>();
-		builder.Services.AddTransient<MainPage>();
+	// Системный сервис MAUI
+	builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+	
+	// Ваш созданный сервис сети
+	builder.Services.AddSingleton<INetworkService, NetworkService>();
+	
+	// ViewModel и Страница
+	builder.Services.AddTransient<MainViewModel>();
+			builder.Services.AddTransient<MainPage>();
 
 		return builder.Build();
 	}
